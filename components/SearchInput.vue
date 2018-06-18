@@ -52,7 +52,7 @@ export default {
     },
 
     q(val) {
-      this.$emit("speechInput", val); // TODO: only on speech
+      this.$emit("input", val); // TODO: only on speech
     }
   },
 
@@ -74,12 +74,14 @@ export default {
     },
 
     onSpeechEnd() {
-      // console.log("speech end");
+      console.log("speech end", this.runtimeTranscription);
       this.speechStop();
-      if (this.runtimeTranscription === "") return;
+      if (!this.runtimeTranscription) return;
 
       this.transcription.push(this.runtimeTranscription);
-      this.q = this.runtimeTranscription;
+      // this.q = this.runtimeTranscription;
+
+      this.$emit('speechInput', this.runtimeTranscription);
       this.speechStart();
     },
 
@@ -108,6 +110,7 @@ export default {
   },
 
   mounted() {
+    console.log('mounted');
     this.checkSpeechApi();
   }
 };

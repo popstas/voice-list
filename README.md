@@ -26,3 +26,7 @@ $ npm start
 # generate static project
 $ npm run generate
 ```
+
+# TODO
+- https://github.com/aofdev/vue-pwa-speech for better recognition
+- 

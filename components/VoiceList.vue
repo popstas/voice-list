@@ -26,7 +26,7 @@ export default {
     onSpeechInput(val){
       if (val.match(/^нет /)) {
         console.log('Discard last item command: ', val);
-        this.$store.dispatch(REPLACE_LAST_ITEM, { text: val });
+        this.$store.dispatch(REPLACE_LAST_ITEM, { text: val.replace(/^нет /, '') });
       } else {
         console.log('Add new item command: ', val);
         this.$store.commit(ADD_ITEM, { text: val });

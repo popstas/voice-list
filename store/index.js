@@ -4,7 +4,7 @@ import dateformat from "dateformat";
 // mutations
 export const SET_ITEMS = "SET_ITEMS";
 export const ADD_ITEM = "ADD_ITEM";
-export const REMOVE_ITEM = "ADD_ITEM";
+export const REMOVE_ITEM = "REMOVE_ITEM";
 export const REPLACE_LAST_ITEM = "REPLACE_LAST_ITEM";
 
 const testItems = [
@@ -53,14 +53,14 @@ export const mutations = {
     state.items.splice(i, 1)
   },
 };
-/*
+
 export const actions = {
   [REPLACE_LAST_ITEM] ({ commit, state }, newItem) {
     console.log('REPLACE_LAST_ITEM mutation', newItem);
     commit(REMOVE_ITEM, state.lastItem);
-    commit(ADD_ITEM, state.newItem);
+    commit(ADD_ITEM, newItem);
   }
 }
- */
+
 
 export const strict = process.env.NODE_ENV !== 'production';
