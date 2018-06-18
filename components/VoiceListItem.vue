@@ -9,17 +9,13 @@
 export default {
   props: ['id', 'text', 'description'],
   data() {
-    return {
-    };
+    return {};
   },
 
-  watch: {
-  },
+  watch: {},
 
-  computed: {
-  },
+  computed: {},
 
-  methods: {
-  }
+  methods: {}
 };
 </script>

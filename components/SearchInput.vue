@@ -27,21 +27,21 @@
 </style>
 
 <script>
-import "vue-awesome/icons/microphone";
+import 'vue-awesome/icons/microphone';
 export default {
   props: {
     value: {
-      default: ""
+      default: ''
     }
   },
 
   data() {
     return {
-      lang: "ru-RU",
+      lang: 'ru-RU',
       q: this.value,
       recognition: false,
       isSpeechRunning: false,
-      runtimeTranscription: "",
+      runtimeTranscription: '',
       transcription: []
     };
   },
@@ -52,20 +52,20 @@ export default {
     },
 
     q(val) {
-      this.$emit("input", val); // TODO: only on speech
+      this.$emit('input', val); // TODO: only on speech
     }
   },
 
   methods: {
     speechStart() {
-      console.log("speech start");
+      console.log('speech start');
       if (!this.recognition) return;
       this.recognition.start();
       this.isSpeechRunning = true;
     },
 
     speechStop() {
-      if(this.recognition) this.recognition.stop();
+      if (this.recognition) this.recognition.stop();
       this.isSpeechRunning = false;
     },
 
@@ -74,7 +74,7 @@ export default {
     },
 
     onSpeechEnd() {
-      console.log("speech end", this.runtimeTranscription);
+      console.log('speech end', this.runtimeTranscription);
       this.speechStop();
       if (!this.runtimeTranscription) return;
 
@@ -86,8 +86,7 @@ export default {
     },
 
     checkSpeechApi() {
-      window.SpeechRecognition =
-        window.SpeechRecognition || window.webkitSpeechRecognition;
+      window.SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
       if (!SpeechRecognition) {
         return;
       }
@@ -96,21 +95,20 @@ export default {
       this.speechStop();
       recognition.lang = this.lang;
       recognition.interimResults = true;
-      recognition.addEventListener("result", event => {
+      recognition.addEventListener('result', event => {
         // console.log("speech result", event.results);
         const text = Array.from(event.results)
           .map(result => result[0])
           .map(result => result.transcript)
-          .join("");
+          .join('');
         this.runtimeTranscription = text;
       });
-      recognition.addEventListener("end", this.onSpeechEnd);
+      recognition.addEventListener('end', this.onSpeechEnd);
       this.recognition = recognition;
     }
   },
 
   mounted() {
-    console.log('mounted');
     this.checkSpeechApi();
   }
 };

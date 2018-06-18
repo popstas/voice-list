@@ -8,22 +8,23 @@
 </template>
 
 <script>
-import VoiceListItem from '~/components/VoiceListItem'
-import SearchInput from "~/components/SearchInput";
-import {ADD_ITEM, REPLACE_LAST_ITEM} from '~/store';
+import VoiceListItem from '~/components/VoiceListItem';
+import SearchInput from '~/components/SearchInput';
+import { ADD_ITEM, REPLACE_LAST_ITEM } from '~/store';
 export default {
   components: {
-    SearchInput, VoiceListItem
+    SearchInput,
+    VoiceListItem
   },
 
   computed: {
-    items(){
+    items() {
       return this.$store.state.items;
     }
   },
 
   methods: {
-    onSpeechInput(val){
+    onSpeechInput(val) {
       if (val.match(/^нет /)) {
         console.log('Discard last item command: ', val);
         this.$store.dispatch(REPLACE_LAST_ITEM, { text: val.replace(/^нет /, '') });
@@ -33,5 +34,5 @@ export default {
       }
     }
   }
-}
+};
 </script>

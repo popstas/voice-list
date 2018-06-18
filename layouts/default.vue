@@ -19,8 +19,8 @@ $max_width: 640px;
 }
 
 html {
-  font-family: "Source Sans Pro", -apple-system, BlinkMacSystemFont, "Segoe UI",
-    Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    'Helvetica Neue', Arial, sans-serif;
   font-size: 14px;
   word-spacing: 1px;
   -ms-text-size-adjust: 100%;
@@ -42,9 +42,9 @@ html {
 </style>
 
 <script>
-import Footer from "~/components/Footer";
+import Footer from '~/components/Footer';
 
 export default {
-  components: { Footer },
+  components: { Footer }
 };
 </script>

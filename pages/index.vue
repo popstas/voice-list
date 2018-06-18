@@ -8,10 +8,10 @@
 </style>
 
 <script>
-import VoiceList from '~/components/VoiceList'
+import VoiceList from '~/components/VoiceList';
 export default {
   components: {
     VoiceList
   }
-}
+};
 </script>
